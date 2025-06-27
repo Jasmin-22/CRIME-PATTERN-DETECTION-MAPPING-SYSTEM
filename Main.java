@@ -90,7 +90,7 @@ public class Main {
                         return;
 
                     default:
-                        System.out.println("❗ Invalid option.");
+                        System.out.println(" Invalid option.");
                 }
             } catch (IOException e) {
                 System.out.println(" File error: " + e.getMessage());
