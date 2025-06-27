@@ -25,7 +25,7 @@ public class Main {
         System.out.println(" Login successful! Welcome, Jasmin ");
 
         while (true) {
-            System.out.println("\n🚨 Crime Pattern Detection System ");
+            System.out.println("\n Crime Pattern Detection System ");
             System.out.println("1. Add Crime");
             System.out.println("2. View All Crimes");
             System.out.println("3. Analyze Top Crime Locations");
