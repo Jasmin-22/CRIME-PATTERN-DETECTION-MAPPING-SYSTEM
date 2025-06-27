@@ -11,7 +11,7 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to analyze.");
+                System.out.println(" No crimes to analyze.");
                 return;
             }
 
@@ -21,7 +21,7 @@ public class CrimeAnalyzer {
                 locationCount.put(location, locationCount.getOrDefault(location, 0) + 1);
             }
 
-            System.out.println("📍 Crime Count by Location:");
+            System.out.println(" Crime Count by Location:");
             for (Map.Entry<String, Integer> entry : locationCount.entrySet()) {
                 System.out.println(entry.getKey() + " ➜ " + entry.getValue() + " crimes");
             }
@@ -39,7 +39,7 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to chart.");
+                System.out.println(" No crimes to chart.");
                 return;
             }
 
@@ -64,7 +64,7 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to map.");
+                System.out.println("No crimes to map.");
                 return;
             }
 
@@ -76,11 +76,11 @@ public class CrimeAnalyzer {
 
             String topLocation = Collections.max(locationCount.entrySet(), Map.Entry.comparingByValue()).getKey();
             String mapsUrl = "https://www.google.com/maps/search/" + topLocation.replace(" ", "+");
-            System.out.println("🌍 Opening Google Maps for: " + topLocation);
+            System.out.println(" Opening Google Maps for: " + topLocation);
             Desktop.getDesktop().browse(new URI(mapsUrl));
 
         } catch (Exception e) {
-            System.out.println("⚠️ Couldn't open browser: " + e.getMessage());
+            System.out.println(" Couldn't open browser: " + e.getMessage());
         }
     }
 
@@ -88,12 +88,12 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to search.");
+                System.out.println(" No crimes to search.");
                 return;
             }
 
             Scanner sc = new Scanner(System.in);
-            System.out.print("🔍 Enter location or type to search: ");
+            System.out.print(" Enter location or type to search: ");
             String input = sc.nextLine().toLowerCase();
 
             boolean found = false;
@@ -106,11 +106,11 @@ public class CrimeAnalyzer {
             }
 
             if (!found) {
-                System.out.println("🚫 No matching crimes found.");
+                System.out.println(" No matching crimes found.");
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -118,7 +118,7 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to chart.");
+                System.out.println(" No crimes to chart.");
                 return;
             }
 
@@ -136,7 +136,7 @@ public class CrimeAnalyzer {
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -144,18 +144,18 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to sort.");
+                System.out.println(" No crimes to sort.");
                 return;
             }
 
             crimes.sort(Comparator.comparing(Crime::getDate));
-            System.out.println("\n📅 Crimes Sorted by Date:\n");
+            System.out.println("\n Crimes Sorted by Date:\n");
             for (Crime crime : crimes) {
                 System.out.println(crime);
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -163,7 +163,7 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No crimes to analyze.");
+                System.out.println("No crimes to analyze.");
                 return;
             }
 
@@ -173,13 +173,13 @@ public class CrimeAnalyzer {
                 typeCount.put(type, typeCount.getOrDefault(type, 0) + 1);
             }
 
-            System.out.println("\n🔢 Crime Type Frequency:\n");
+            System.out.println("\n Crime Type Frequency:\n");
             for (Map.Entry<String, Integer> entry : typeCount.entrySet()) {
                 System.out.println(entry.getKey() + ": " + entry.getValue());
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -199,13 +199,13 @@ public class CrimeAnalyzer {
 
             boolean updated = FileManager.updateCrime(id, type, loc, date, desc);
             if (updated) {
-                System.out.println("✅ Crime updated.");
+                System.out.println(" Crime updated.");
             } else {
-                System.out.println("❌ Crime ID not found.");
+                System.out.println(" Crime ID not found.");
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -216,13 +216,13 @@ public class CrimeAnalyzer {
             String id = sc.nextLine();
             boolean deleted = FileManager.deleteCrime(id);
             if (deleted) {
-                System.out.println("🗑️ Crime deleted.");
+                System.out.println(" Crime deleted.");
             } else {
-                System.out.println("❌ Crime ID not found.");
+                System.out.println(" Crime ID not found.");
             }
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error: " + e.getMessage());
+            System.out.println(" Error: " + e.getMessage());
         }
     }
 
@@ -230,21 +230,21 @@ public class CrimeAnalyzer {
         try {
             List<Crime> crimes = FileManager.readCrimes();
             if (crimes.isEmpty()) {
-                System.out.println("❌ No data to export.");
+                System.out.println(" No data to export.");
                 return;
             }
 
             StringBuilder sb = new StringBuilder();
-            sb.append("📋 Crime Report\n\n");
+            sb.append(" Crime Report\n\n");
             for (Crime crime : crimes) {
                 sb.append(crime.toString()).append("\n");
             }
 
             FileManager.exportReport(sb.toString());
-            System.out.println("✅ Report exported to crime_report.txt");
+            System.out.println(" Report exported to crime_report.txt");
 
         } catch (IOException e) {
-            System.out.println("⚠️ Error exporting: " + e.getMessage());
+            System.out.println("Error exporting: " + e.getMessage());
         }
     }
 }
