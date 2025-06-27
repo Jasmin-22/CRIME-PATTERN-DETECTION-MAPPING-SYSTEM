@@ -53,7 +53,7 @@ public class Crime {
 
     @Override
     public String toString() {
-        return String.format("📌 Crime ID: %s\n🔸 Type: %s\n📍 Location: %s\n📅 Date: %s\n📝 Description: %s\n",
+        return String.format("Crime ID: %s\n Type: %s\n Location: %s\n Date: %s\n Description: %s\n",
                 id, type, location, date, description);
     }
 }
