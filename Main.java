@@ -10,22 +10,22 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // 🔐 Login
-        System.out.println("🔒 Login Required");
+        // Login
+        System.out.println(" Login Required");
         System.out.print("Username: ");
         String uname = scanner.nextLine();
         System.out.print("Password: ");
         String pass = scanner.nextLine();
 
         if (!USERNAME.equals(uname) || !PASSWORD.equals(pass)) {
-            System.out.println("❌ Invalid credentials. Exiting...");
+            System.out.println(" Invalid credentials. Exiting...");
             return;
         }
 
-        System.out.println("✅ Login successful! Welcome, Jasmin 👑");
+        System.out.println(" Login successful! Welcome, Jasmin ");
 
         while (true) {
-            System.out.println("\n🚨 Crime Pattern Detection System 🚨");
+            System.out.println("\n🚨 Crime Pattern Detection System ");
             System.out.println("1. Add Crime");
             System.out.println("2. View All Crimes");
             System.out.println("3. Analyze Top Crime Locations");
@@ -60,13 +60,13 @@ public class Main {
 
                         Crime crime = new Crime(id, type, loc, date, desc);
                         FileManager.saveCrime(crime);
-                        System.out.println("✅ Crime saved.");
+                        System.out.println("Crime saved.");
                         break;
 
                     case 2:
                         List<Crime> crimes = FileManager.readCrimes();
                         if (crimes.isEmpty()) {
-                            System.out.println("❌ No crimes found.");
+                            System.out.println(" No crimes found.");
                         } else {
                             for (Crime c : crimes) {
                                 System.out.println(c);
@@ -86,14 +86,14 @@ public class Main {
                     case 12: CrimeAnalyzer.exportReport(); break;
 
                     case 13:
-                        System.out.println("👋 Exiting... Goodbye Jasmin!");
+                        System.out.println("Exiting... Goodbye Jasmin!");
                         return;
 
                     default:
                         System.out.println("❗ Invalid option.");
                 }
             } catch (IOException e) {
-                System.out.println("⚠️ File error: " + e.getMessage());
+                System.out.println(" File error: " + e.getMessage());
             }
         }
     }
